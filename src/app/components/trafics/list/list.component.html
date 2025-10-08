@@ -1,0 +1,38 @@
+<h3>Forgalom kezelés</h3>
+<hr>
+<button type="button" class="btn btn-primary" routerLink='/trafficsform'><i class="bi bi-plus-lg"></i>  Új adat rögzítés</button>
+<table class="mb-3 table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Kategória</th>
+            <th>Termék</th>
+            <th>Vevő</th>
+            <th class="text-end">Mennyiség</th>
+            <th class="text-end">Nettó ár</th>
+            <th class="text-end">Összesen</th>
+            <th >Kiadva</th>
+            <th class="text-end">Kiadva</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trafic of traffics; index as i;">
+            <td>{{ i+1 }}</td>
+            <td>{{ trafic.kategoriaId }}</td>
+            <td>{{ trafic.termek }}</td>
+            <td>{{ trafic.vevo }}</td>
+            <td class="text-end">{{ trafic.mennyiseg }} {{ trafic.egyseg }}</td>
+            <td class="text-end">{{ trafic.nettoar }}</td>
+            <td class="text-end">{{ trafic.mennyiseg }} * {{ trafic.nettoar }}</td>
+            <td>{{ trafic.kiadva }}</td>
+
+            <td class="text-end">
+                <button class="btn btn-sm btn-warning me-2"><i class="bi bi-exclamation-circle"></i></button>
+                <button class="btn btn-sm btn-danger"><i class="bi bi-x-circle"></i></button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <th colspan="8" class="text-center">Összesen: <span>0</span> rekord</th>
+    </tfoot>
+  </table>
