@@ -2,11 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import axios from 'axios';
+import { Category } from '../../../interfaces/category';
  
-interface Category{
-    id: number;
-    kategoriaNev: string
-}
+
 
 @Component({
   selector: 'app-cat-list',

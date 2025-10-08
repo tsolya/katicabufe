@@ -2,17 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import axios from 'axios';
+import { Traffic } from '../../../interfaces/traffic';
  
-interface Traffic{
-    id: number;
-    termek:string;
-    vevo:string;
-    kategoriaId:number;
-    egyseg:string;
-    nettoar:number;
-    mennyiseg:number;
-    kiadva:boolean;
-}
+
 
 @Component({
   selector: 'app-cat-list',
