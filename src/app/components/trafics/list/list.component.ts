@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import axios from 'axios';
 import { Traffic } from '../../../interfaces/traffic';
+import { apires } from '../../../interfaces/response';
+import { APIService } from '../../../services/api.service';
  
 
 
@@ -17,16 +19,18 @@ import { Traffic } from '../../../interfaces/traffic';
 export class ListTrafComponent implements OnInit {
   traffics: Traffic[] = []
 
+  constructor(private api:APIService){}
+  
   async ngOnInit() {
-    try{
-      const response = await axios.get('http://localhost:3000/traffic');
-      this.traffics=response.data;
-    }
-    catch(error){
-      console.log(error);
-
-    }
-    
-    
-  }
+    this.api.SelectAll("traffics").then((res:apires) => {
+      if(res.status == 200){
+        this.traffics = res.data
+        console.log(this.traffics)
+      }
+      else{
+        alert(res.message)
+      }
+     
+    })
+ }
 }
